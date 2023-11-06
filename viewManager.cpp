@@ -4385,6 +4385,15 @@ int viewManager::Visualizer::platform::drawChar(
         unsigned char freetypeB = buffer[bufferPosition + 2];
 #endif
 
+       /*
+      The following code was adopted from an article that needs more research to find. The implementation of the shifting to divide or otherwise 
+      blend two pixels together based upon a lumenence value. I adopted the format and added the values locally. Orginally, my formula was longer.
+
+      Here are some references on pixel blending in the mean time:
+         https://gamedev.stackexchange.com/questions/115721/c-additive-blending-algorithm-2d-game
+         
+
+       */
         unsigned char targetR =
             ((foregroundR * freetypeR) + (destinationR * (255 - freetypeR))) >>
             8;
